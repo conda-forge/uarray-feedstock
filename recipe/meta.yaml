@@ -24,6 +24,8 @@ requirements:
     - make                                 # [not win]
   host:
     - python
+    - setuptools >=64
+    - setuptools-scm >=8
     - pip
     - scikit-build-core >=0.10.0
   run:
