@@ -15,7 +15,7 @@ build:
 
 requirements:
   build:
-    - python >=3.10                       # [build_platform != target_platform]
+    - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
@@ -23,7 +23,7 @@ requirements:
     - cmake >=3.15
     - make                                 # [not win]
   host:
-    - python >=3.10
+    - python
     - pip
     - scikit-build-core >=0.10.0
   run:
