@@ -1,5 +1,5 @@
 {% set name = "uarray" %}
-{% set version = "0.9.0" %}
+{% set version = "0.9.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 70193b1c18f815808488dbc78607f3a5841ada1ec30bc26954fee7695f9a1269
+  sha256: d390cbd1ab48d940d91f91263958a910862d667d8fdc17d7a046d329c6bd5f7e
 
 build:
   number: 0
