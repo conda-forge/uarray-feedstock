@@ -3,7 +3,7 @@ About uarray-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/uarray-feedstock/blob/main/LICENSE.txt)
 
-Home: http://github.com/Quansight-Labs/uarray
+Home: https://github.com/Quansight-Labs/uarray
 
 Package license: BSD-3-Clause
 
@@ -14,7 +14,6 @@ Development: https://github.com/Quansight-Labs/uarray
 Documentation: http://uarray.readthedocs.io/
 
 `uarray` is a backend-dispatch mechanism for Python.
-
 
 Current build status
 ====================
