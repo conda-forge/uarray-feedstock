@@ -26,7 +26,7 @@ requirements:
     - cmake >=3.15
     - if: not win
       then:
-      - ninja
+      - make
   host:
     - python
     - setuptools >=64
