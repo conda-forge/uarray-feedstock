@@ -22,7 +22,6 @@ requirements:
       - python
       - cross-python_${{ target_platform }}
     - ${{ compiler('c') }}
-    - ${{ stdlib('c') }}
     - ${{ compiler('cxx') }}
     - cmake >=3.15
     - if: not win
@@ -40,7 +39,7 @@ requirements:
 tests:
   - python:
       imports:
-        - sparse
+        - uarray
   - requirements:
       run:
         - pip
