@@ -16,7 +16,7 @@ build:
   script: python -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
-  host:
+  build:
     - if: build_platform != target_platform
       then:
       - python
@@ -28,9 +28,12 @@ requirements:
     - if: not win
       then:
       - ninja
+  host:
+    - python
     - setuptools >=64
     - setuptools-scm >=8
     - pip
+    - scikit-build-core >=0.10.0
   run:
     - python
 
