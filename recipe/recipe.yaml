@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
 context:
   name: uarray
-  version: "0.9.3"
+  version: "0.9.4"
   python_min: "3.11"
 
 package:
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 08de4d513e2fa597cdccc046132be175b1a8b978fe82b13fdd4ce47ee8c5e886
+  sha256: a6b63be7124884be095878d397a753260c169cbdf89095419895a8bee7af62e0
 
 build:
-  number: 1
+  number: 0
   script: python -m pip install . -vv --no-deps --no-build-isolation
   skip: match(python, "<${{ python_min }}")
 
