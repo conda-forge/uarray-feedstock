@@ -23,9 +23,6 @@ requirements:
       then:
         - python ${{ python }}
         - cross-python_${{ target_platform }}
-        - pip
-        - meson-python
-        - versioningit
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
     - ${{ compiler('cxx') }}
