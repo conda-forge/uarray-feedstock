@@ -3,10 +3,12 @@ set -ex
 
 export AR=$GCC_AR
 
+# binary is called `pkg-config`, but package metadata is under `lib/pkgconfig`
+export MESON_ARGS="${MESON_ARGS} --pkg-config-path=${PREFIX}/lib/pkgconfig"
+
 # meson-python already sets up a -Dbuildtype=release argument to meson, so
 # we need to strip --buildtype out of MESON_ARGS or fail due to redundancy
 MESON_ARGS_REDUCED="$(echo $MESON_ARGS | sed 's/--buildtype release //g')"
-MESON_ARGS_REDUCED="$MESON_ARGS_REDUCED -Dprefix=$BUILD_PREFIX"
 
 # -wnx flags mean: --wheel --no-isolation --skip-dependency-check
 $PYTHON -m build -w -n -x \
