@@ -14,7 +14,11 @@ source:
 
 build:
   number: 0
-  script: python -m pip install . -vv --no-deps --no-build-isolation
+  script:
+    if: unix
+    then: build_base.sh
+    else: build_base.bat
+
   skip: match(python, "<${{ python_min }}")
 
 requirements:
@@ -23,7 +27,6 @@ requirements:
       then:
         - python ${{ python }}
         - cross-python_${{ target_platform }}
-        - ninja
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
     - ${{ compiler('cxx') }}
@@ -33,6 +36,7 @@ requirements:
     - meson-python
     - pip
     - ninja
+    - python-build
   run:
     - python
 
