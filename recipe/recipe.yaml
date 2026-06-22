@@ -26,13 +26,12 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
     - ${{ compiler('cxx') }}
-    - cmake >=3.15
+    - meson-python
     - if: not win
       then:
-        - make
+        - ninja
   host:
     - python ${{ python }}
-    - meson-python
     - versioningit
     - pip
   run:
