@@ -6,6 +6,7 @@ export AR=$GCC_AR
 # meson-python already sets up a -Dbuildtype=release argument to meson, so
 # we need to strip --buildtype out of MESON_ARGS or fail due to redundancy
 MESON_ARGS_REDUCED="$(echo $MESON_ARGS | sed 's/--buildtype release //g')"
+MESON_ARGS_REDUCED="$MESON_ARGS_REDUCED -Dprefix=$BUILD_PREFIX"
 
 # -wnx flags mean: --wheel --no-isolation --skip-dependency-check
 $PYTHON -m build -w -n -x \
