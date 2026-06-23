@@ -30,12 +30,12 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
     - ${{ compiler('cxx') }}
+    - ninja
   host:
     - python ${{ python }}
     - versioningit
     - meson-python
     - pip
-    - ninja
     - python-build
   run:
     - python
