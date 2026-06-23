@@ -10,6 +10,9 @@ export MESON_ARGS="${MESON_ARGS} --pkg-config-path=${PREFIX}/lib/pkgconfig"
 # we need to strip --buildtype out of MESON_ARGS or fail due to redundancy
 MESON_ARGS_REDUCED="$(echo $MESON_ARGS | sed 's/--buildtype release //g')"
 
+# Workaround for MESON_ARGS
+MESON_ARGS_REDUCED="$(echo $MESON_ARGS_REDUCED | sed 's/--cross-file /--cross-file=/g')"
+
 # -wnx flags mean: --wheel --no-isolation --skip-dependency-check
 $PYTHON -m build -w -n -x \
     -Cbuilddir=builddir \
