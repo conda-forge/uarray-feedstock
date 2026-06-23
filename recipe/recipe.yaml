@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
 context:
   name: uarray
-  version: "0.9.3"
-  python_min: "3.11"
+  version: "0.9.5"
+  python_min: "3.12"
 
 package:
   name: ${{ name|lower }}
@@ -10,11 +10,15 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 08de4d513e2fa597cdccc046132be175b1a8b978fe82b13fdd4ce47ee8c5e886
+  sha256: 1ea6fbc4ffa82462227991477ef5f82415eb21f364ab02a677f54003755757af
 
 build:
-  number: 1
-  script: python -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
+  script:
+    - if: not win
+      then: build_base.sh
+      else: build_base.bat
+
   skip: match(python, "<${{ python_min }}")
 
 requirements:
@@ -26,16 +30,13 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
     - ${{ compiler('cxx') }}
-    - cmake >=3.15
-    - if: not win
-      then:
-        - make
+    - ninja
   host:
     - python ${{ python }}
-    - setuptools >=64
-    - setuptools-scm >=8
+    - versioningit
+    - meson-python
     - pip
-    - scikit-build-core >=0.10.0
+    - python-build
   run:
     - python
 
